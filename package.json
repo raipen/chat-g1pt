@@ -9,7 +9,8 @@
   "marp": {
     "inputDir": "./md",
     "output": "./png",
-    "images": "png"
+    "images": "png",
+    "allowLocalFiles": true
   },
   "author": "",
   "license": "ISC",
