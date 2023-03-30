@@ -8,18 +8,37 @@ _paginate: false
 marp: true
 style: |
   section.center {
-    left: 120px;
-    width: 720px;
     text-align: center;
-    border: 5px solid white;
+    border: none;
     word-break: keep-all;
+    padding: 0 200px;
+  }
+  section.center::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 690px;
+    height: 690px;
+    border: 5px solid white;
+    margin: 10px;
   }
   section.center h1 {
         font-size: 2em;
   }
   section {
     word-break: keep-all;
+  }
+  section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
     border: 5px solid white;
+    margin: 10px;
   }
   li li{
     font-size: 0.8em;
