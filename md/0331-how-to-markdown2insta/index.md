@@ -1,34 +1,20 @@
 ---
 theme: default
 size: 4:3
-class:
-   - invert orange
 paginate: true
 _paginate: false
 marp: true
 style: |
-   section.center {
-      text-align: center;
-      border: none;
-      word-break: keep-all;
-      padding: 0 200px;
+   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+   
+   :root {
+      --my-color: #694cff;
+      font-family: 'Noto Sans KR', sans-serif;
    }
-   section.center::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 690px;
-      height: 690px;
-      border: 5px solid white;
-      margin: 10px;
-   }
-   section.center h1 {
-      font-size: 2em;
-   }
+
    section {
       word-break: keep-all;
+      padding: 0 50px;
    }
    section::before {
       content: "";
@@ -37,22 +23,46 @@ style: |
       left: 0;
       width: 930px;
       height: 690px;
-      border: 5px solid white;
+      border: 5px solid var(--my-color);
       margin: 10px;
    }
    section.noborder::before {
       display: none;
    }
+
+   section.center {
+      text-align: center;
+      padding: 0 200px;
+      background-color: var(--my-color);
+   }
+   section.center::before {
+      left: 50%;
+      transform: translateX(calc(-50% - 10px));
+      width: 690px;
+      border: 5px solid #fff;
+   }
+   section.center h1 {
+      color: #fff;
+      font-size: 2em;
+   }
+
+   h1 {
+      font-size: 1.5em;
+      font-weight: 700;
+      color: var(--my-color);
+   }
+
+   li::marker {
+      color: var(--my-color);
+      font-size: 0.8em;
+   }
    li li{
       font-size: 0.8em;
    }
-   strong {
-      border-bottom: 1px solid white;
-   }
-   :root {
-      --color-fg-default: #000;
-      --color-canvas-default: #e18429;
-      --h1-color: #fff;
+   marp-pre {
+      background-color: #161b22;
+      border-radius: 10px;
+      padding: 10px;
    }
    marp-pre>code {
       color: white;
@@ -100,19 +110,31 @@ https:// github.com/ **raipen/chat-g1pt**
 더 자세한 문법: https://marpit.marp.app/markdown 
 
 ---
-<!-- _class: noborder -->
-![bg fit](./codeE.png)
-![bg fit](./codeE2.png)
+![bg 90%](./codeE.png)
+![bg 90%](./codeE2.png)
+# 작성 예시
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ---
 # 4. marp cli로 슬라이드 만들기
 * marp 명령어로 슬라이드를 만들 수 있습니다.
 * ```marp --images [png|jpeg] 파일이름```
-* --output 옵션으로 이미지 파일들의 저장 위치를 지정할 수 있습니다.
+* --output 옵션: 이미지 파일들의 저장 위치를 지정
 * ex) ```marp --images png --output ./png index.md```
-* 저는 npm script를 실행한 폴더에 있는 모든 .md 파일을 png로 변환하도록 설정했습니다.
 * package.json
-```json
+```
 {
    ...
    "scripts": {
@@ -122,5 +144,33 @@ https:// github.com/ **raipen/chat-g1pt**
    ...
 }
 ```
+* 위와 같이 작성 시 ```npm run marp:운영체제``` 로 실행 가능
+   * 명령어를 실행한 디렉토리의 모든 md 파일을 png로 변환
 
 ---
+# 5. 빌드 예시
+![](./build.png)
+
+---
+# + 디자인 설정
+* 첫 슬라이드 위에 다양한 설정들을 할 수 있습니다.
+
+```
+---
+theme: default
+size: 4:3
+class:
+   - orange
+paginate: true
+marp: true
+style: |
+   section.orange {
+      word-break: keep-all;
+      padding: 0 50px;
+      background-color: orange;
+   }
+---
+첫 슬라이드 마크다운
+밑에는 일반적인 마크다운 문법으로 작성하시면 됩니다.
+```
+자세한 문법은 https://marpit.marp.app/directives
