@@ -148,7 +148,7 @@ https:// github.com/ **raipen/chat-g1pt**
    * 명령어를 실행한 디렉토리의 모든 md 파일을 png로 변환
 
 ---
-# 5. 빌드 예시
+# 빌드 예시
 ![](./build.png)
 
 ---
